@@ -1,0 +1,38 @@
+CREATE DATABASE KWITTER;
+
+CREATE TABLE USERS (
+`idx` INT AUTO_INCREMENT, 
+`id` VARCHAR(20), 
+`pw` VARCHAR(20),
+`name` VARCHAR(30),
+`email` VARCHAR(40),
+`comment` TEXT, 
+`profile` TEXT, 
+PRIMARY KEY (`idx`, `id`)
+);
+
+CREATE TABLE KWITS (
+`idx` INT AUTO_INCREMENT, 
+`userIdx` INT, 
+`kwit` TEXT,
+`image` TEXT, 
+PRIMARY KEY (`idx`)
+);
+
+
+
+SELECT * FROM `USERS` WHERE `id` = '$id' AND `pw` = '$pw';
+
+SELECT * FROM `USERS` WHERE `id` = '$id';
+
+SELECT * FROM `KWITS` ORDER BY `idx` DESC;
+
+SELECT * FROM `KWITS` WHERE `userId` = '$id'" ORDER BY `idx` DESC;
+
+INSERT INTO `USERS` (`id`, `pw`, `name`, `email`, `comment`) VALUES ('$id', '$pw', '$name', '$email', '$comment');
+
+INSERT INTO `KWITS` (`userIdx`, `kwit`, `image`, `time`) VALUES ('$id', '$text', '$target_file', '$time');
+
+UPDATE `USERS` SET `profile` = '$target_file' WHERE `id`='$id';
+
+UPDATE `USERS` SET `pw`='$pw', `name`='$name', `email`='$email', `comment`='$comment' WHERE `id`='$id';
